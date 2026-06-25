@@ -1,132 +1,131 @@
-const blogData = {
-    title: "Forza Motorsport 6: A Racing Classic That Still Delivers",
-    subtitle:
-        "Exploring one of the most respected racing games ever released for Xbox.",
+const dadosBlog = {
+    titulo: "Forza Horizon 6",
+    subtitulo:
+        "Tudo sobre o próximo capítulo da franquia de corrida em mundo aberto da Xbox.",
 
-    introduction:
-        "Forza Motorsport 6 remains a favorite among racing fans thanks to its realistic driving mechanics, impressive vehicle selection, and immersive racing environments.",
+    introducao:
+        "Forza Horizon 6 é um dos jogos de corrida mais aguardados pelos fãs da franquia. A expectativa é que o novo título apresente gráficos ainda mais impressionantes, novos carros, eventos inéditos e um mapa gigantesco para exploração.",
 
-    overview:
-        "Released for Xbox One, Forza Motorsport 6 combines simulation-style racing with accessible gameplay, making it enjoyable for both casual and competitive players.",
+    sobre:
+        "Seguindo a tradição da série Horizon, o jogo deve combinar corridas, exploração em mundo aberto, personalização de veículos e eventos sazonais em um ambiente vibrante e cheio de atividades.",
 
-    features: [
+    destaques: [
         {
-            title: "Massive Car Collection",
-            description:
-                "Drive hundreds of vehicles from legendary manufacturers around the world."
+            titulo: "Mapa Maior",
+            descricao:
+                "Expectativa de um dos maiores mapas já criados na franquia."
         },
         {
-            title: "Dynamic Weather",
-            description:
-                "Rain races change track conditions and require careful driving."
+            titulo: "Clima Dinâmico",
+            descricao:
+                "Mudanças climáticas em tempo real que afetam a jogabilidade."
         },
         {
-            title: "Night Racing",
-            description:
-                "Race under realistic lighting conditions for added immersion."
+            titulo: "Novos Veículos",
+            descricao:
+                "Centenas de carros esportivos, clássicos e supermáquinas."
         },
         {
-            title: "Advanced Physics",
-            description:
-                "Responsive handling and realistic vehicle behavior."
+            titulo: "Modo Online Aprimorado",
+            descricao:
+                "Mais eventos colaborativos e competitivos para os jogadores."
         }
     ],
 
     gameplay: [
         {
-            title: "Career Mode",
-            description:
-                "Progress through multiple championships and racing categories."
+            titulo: "Exploração Livre",
+            descricao:
+                "Dirija por cidades, rodovias, montanhas e paisagens incríveis."
         },
         {
-            title: "Multiplayer",
-            description:
-                "Challenge racers online in competitive events."
+            titulo: "Festival Horizon",
+            descricao:
+                "Participe de desafios, campeonatos e eventos especiais."
         },
         {
-            title: "Drivatar AI",
-            description:
-                "Face intelligent opponents based on real player behavior."
+            titulo: "Personalização",
+            descricao:
+                "Modifique visualmente e mecanicamente seus veículos."
         }
     ],
 
-    strengths: [
-        "Huge vehicle roster",
-        "Excellent driving physics",
-        "Strong replay value",
-        "Immersive weather effects"
+    positivos: [
+        "Gráficos de última geração",
+        "Grande variedade de carros",
+        "Mundo aberto expansivo",
+        "Experiência online aprimorada"
     ],
 
-    weaknesses: [
-        "Limited modern availability",
-        "Graphics show their age compared to newer titles"
+    negativos: [
+        "Poucas informações oficiais até o momento",
+        "Possível exigência de hardware mais potente"
     ],
 
-    worthPlaying:
-        "Yes. Forza Motorsport 6 still offers a fantastic racing experience with deep content, realistic gameplay, and plenty of variety."
+    valeAPena:
+        "Se você gosta de jogos de corrida arcade com elementos de simulação, exploração e liberdade, Forza Horizon 6 tem tudo para ser um dos maiores lançamentos da franquia."
 };
 
-// Header
-document.getElementById("blog-title").textContent = blogData.title;
-document.getElementById("blog-subtitle").textContent = blogData.subtitle;
+// Cabeçalho
+document.getElementById("titulo-blog").textContent = dadosBlog.titulo;
+document.getElementById("subtitulo-blog").textContent = dadosBlog.subtitulo;
 
-// Content
-document.getElementById("intro").textContent =
-    blogData.introduction;
+// Textos principais
+document.getElementById("introducao").textContent = dadosBlog.introducao;
+document.getElementById("sobre-jogo").textContent = dadosBlog.sobre;
 
-document.getElementById("overview").textContent =
-    blogData.overview;
+document.getElementById("graficos").textContent =
+    "A expectativa é de gráficos ainda mais realistas, iluminação avançada, efeitos climáticos impressionantes e sons de motores extremamente detalhados.";
 
-document.getElementById("graphics").textContent =
-    "Detailed car models, realistic lighting effects, and authentic engine sounds help create an immersive racing experience.";
+document.getElementById("vale-a-pena").textContent =
+    dadosBlog.valeAPena;
 
-document.getElementById("worth").textContent =
-    blogData.worthPlaying;
+// Destaques
+const areaDestaques = document.getElementById("destaques");
 
-// Features
-const featureContainer = document.getElementById("features");
-
-blogData.features.forEach(feature => {
+dadosBlog.destaques.forEach(item => {
     const card = document.createElement("div");
-    card.classList.add("feature-card");
+
+    card.classList.add("card");
 
     card.innerHTML = `
-        <h3>${feature.title}</h3>
-        <p>${feature.description}</p>
+        <h3>${item.titulo}</h3>
+        <p>${item.descricao}</p>
     `;
 
-    featureContainer.appendChild(card);
+    areaDestaques.appendChild(card);
 });
 
 // Gameplay
-const gameplayContainer = document.getElementById("gameplay");
+const areaGameplay = document.getElementById("gameplay");
 
-blogData.gameplay.forEach(item => {
+dadosBlog.gameplay.forEach(item => {
     const card = document.createElement("div");
-    card.classList.add("gameplay-card");
+
+    card.classList.add("card");
 
     card.innerHTML = `
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
+        <h3>${item.titulo}</h3>
+        <p>${item.descricao}</p>
     `;
 
-    gameplayContainer.appendChild(card);
+    areaGameplay.appendChild(card);
 });
 
-// Pros
-const prosList = document.getElementById("pros");
+// Positivos
+const listaPositivos = document.getElementById("positivos");
 
-blogData.strengths.forEach(pro => {
+dadosBlog.positivos.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = pro;
-    prosList.appendChild(li);
+    li.textContent = item;
+    listaPositivos.appendChild(li);
 });
 
-// Cons
-const consList = document.getElementById("cons");
+// Negativos
+const listaNegativos = document.getElementById("negativos");
 
-blogData.weaknesses.forEach(con => {
+dadosBlog.negativos.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = con;
-    consList.appendChild(li);
+    li.textContent = item;
+    listaNegativos.appendChild(li);
 });
