@@ -1,201 +1,141 @@
 // ========================
-// EFEITO DOS CARDS
-// ========================
-
-const cards = document.querySelectorAll(".card");
-
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.boxShadow =
-        "0 0 20px rgba(255,0,0,.5)";
-
-    });
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.boxShadow = "none";
-
-    });
-
-});
-
-
-
-
-
-// ========================
-// SISTEMA DE LIKE
+// DETALHES DOS CARROS
 // ========================
 
 
-const botoesLike = document.querySelectorAll(".btn-like");
+const carros = {
 
 
-botoesLike.forEach(botao => {
+ferrari:`
 
+<h2>🏎️ Ferrari</h2>
 
-    const card = botao.closest(".card");
+<p>
+<strong>Modelo destaque:</strong> Ferrari SF90 Stradale
+</p>
 
-    const id = card.dataset.id;
+<p>
+A Ferrari SF90 Stradale é um dos carros mais avançados
+da marca italiana. Combina motor V8 com tecnologia híbrida
+para entregar desempenho extremo.
+</p>
 
-    const contador = card.querySelector(".likes");
+<br>
 
+<p>
+🏁 Categoria: Supercarro<br>
+🔥 Potência: 986 cv<br>
+⚡ 0-100 km/h: 2,5 segundos<br>
+🌍 País: Itália
+</p>
 
+<br>
 
-    let quantidade =
-    Number(localStorage.getItem("likes-" + id)) || 0;
+<p>
+No Festival Horizon, a Ferrari é perfeita para corridas
+de alta velocidade e pistas com longas retas.
+</p>
 
+`,
 
 
-    contador.textContent =
-    quantidade + " curtidas";
 
+lamborghini:`
 
+<h2>🏎️ Lamborghini</h2>
 
-    // Verifica se já curtiu
+<p>
+<strong>Modelo destaque:</strong> Lamborghini Revuelto
+</p>
 
-    if(localStorage.getItem("curtiu-" + id)){
+<p>
+A Lamborghini Revuelto representa a nova geração da
+marca, trazendo design agressivo e uma combinação de
+motor V12 com tecnologia híbrida.
+</p>
 
+<br>
 
-        botao.innerHTML = "❤️ Curtido";
+<p>
+🏁 Categoria: Hipercarro<br>
+🔥 Potência: 1001 cv<br>
+⚡ 0-100 km/h: 2,5 segundos<br>
+🌍 País: Itália
+</p>
 
-        botao.classList.add("ativo");
+<br>
 
+<p>
+Ideal para jogadores que gostam de aceleração forte
+e presença nas corridas.
+</p>
 
-    }
+`,
 
 
 
-    botao.addEventListener("click", () => {
+porsche:`
 
+<h2>🏎️ Porsche</h2>
 
-        // impede curtir novamente
+<p>
+<strong>Modelo destaque:</strong> Porsche 911 GT3 RS
+</p>
 
-        if(localStorage.getItem("curtiu-" + id)){
+<p>
+O Porsche 911 GT3 RS é conhecido pelo equilíbrio
+perfeito entre velocidade e controle.
+</p>
 
-            return;
+<br>
 
-        }
+<p>
+🏁 Categoria: Corrida<br>
+🔥 Potência: 525 cv<br>
+⚡ 0-100 km/h: 3,2 segundos<br>
+🌍 País: Alemanha
+</p>
 
+<br>
 
+<p>
+Um carro feito para dominar curvas e pistas técnicas.
+</p>
 
-        quantidade++;
+`,
 
 
 
-        localStorage.setItem(
-            "likes-" + id,
-            quantidade
-        );
+nissan:`
 
+<h2>🏎️ Nissan</h2>
 
+<p>
+<strong>Modelo destaque:</strong> Nissan GT-R R35
+</p>
 
-        localStorage.setItem(
-            "curtiu-" + id,
-            "true"
-        );
+<p>
+O Nissan GT-R é um dos carros japoneses mais famosos
+do mundo, conhecido como "Godzilla" pela sua força
+nas pistas.
+</p>
 
+<br>
 
+<p>
+🏁 Categoria: Esportivo<br>
+🔥 Potência: 565 cv<br>
+⚡ 0-100 km/h: 2,7 segundos<br>
+🌍 País: Japão
+</p>
 
-        contador.textContent =
-        quantidade + " curtidas";
+<br>
 
+<p>
+Excelente escolha para drift, tunagem e corridas de rua.
+</p>
 
-
-        botao.innerHTML =
-        "❤️ Curtido";
-
-
-
-        botao.classList.add("ativo");
-
-
-
-    });
-
-
-
-});
-
-
-
-
-
-
-
-
-// ========================
-// CONTEÚDO DAS NOTÍCIAS
-// ========================
-
-
-const noticias = {
-
-
-    1: `
-
-    <h2>🌍 Novo mapa</h2>
-
-    <p>
-    O Forza Horizon 6 apresenta um novo mundo aberto
-    cheio de cidades, estradas, montanhas e locais
-    para explorar.
-    </p>
-
-    <br>
-
-    <p>
-    Os jogadores poderão participar de corridas,
-    desafios especiais e eventos espalhados pelo mapa.
-    </p>
-
-    `,
-
-
-
-    2: `
-
-    <h2>🚗 Novos carros</h2>
-
-    <p>
-    A nova edição traz diversos veículos,
-    incluindo carros clássicos, esportivos e
-    supercarros modernos.
-    </p>
-
-    <br>
-
-    <p>
-    Todos os carros podem receber melhorias,
-    personalizações e ajustes de desempenho.
-    </p>
-
-    `,
-
-
-
-    3: `
-
-    <h2>🏁 Festival Horizon</h2>
-
-    <p>
-    O Festival Horizon reúne competidores em
-    grandes eventos e campeonatos.
-    </p>
-
-    <br>
-
-    <p>
-    Complete desafios para desbloquear recompensas
-    e aumentar sua coleção de veículos.
-    </p>
-
-    `
-
+`
 
 };
 
@@ -203,44 +143,36 @@ const noticias = {
 
 
 
+// Abrir detalhes dos carros
+
+const cardsCarros =
+document.querySelectorAll(".carro");
 
 
-// ========================
-// ABRIR NOTÍCIA
-// ========================
+const modalCarro =
+document.querySelector(".modal-carro");
 
 
-const botoesLer =
-document.querySelectorAll(".btn-ler");
-
-
-const modal =
-document.querySelector(".modal");
-
-
-const conteudo =
-document.querySelector(".conteudo-modal");
+const conteudoCarro =
+document.querySelector(".conteudo-carro");
 
 
 
-botoesLer.forEach(botao => {
+cardsCarros.forEach(carro => {
 
 
-    botao.addEventListener("click", () => {
+    carro.addEventListener("click",()=>{
 
 
-        const id =
-        botao.closest(".card").dataset.id;
+        const nome =
+        carro.dataset.carro;
 
 
-
-        conteudo.innerHTML =
-        noticias[id];
-
+        conteudoCarro.innerHTML =
+        carros[nome];
 
 
-        modal.style.display =
-        "flex";
+        modalCarro.style.display="flex";
 
 
     });
@@ -250,44 +182,11 @@ botoesLer.forEach(botao => {
 
 
 
+document.querySelector(".fechar-carro")
+.addEventListener("click",()=>{
 
 
-
-// ========================
-// FECHAR MODAL
-// ========================
-
-
-const fechar =
-document.querySelector(".fechar");
-
-
-
-fechar.addEventListener("click", () => {
-
-
-    modal.style.display =
-    "none";
-
-
-});
-
-
-
-
-
-// Fechar clicando fora da caixa
-
-
-modal.addEventListener("click", (evento) => {
-
-
-    if(evento.target === modal){
-
-        modal.style.display =
-        "none";
-
-    }
+    modalCarro.style.display="none";
 
 
 });
