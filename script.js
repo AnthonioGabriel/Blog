@@ -59,7 +59,7 @@ botoesLike.forEach(botao => {
 
 
 
-    botao.addEventListener("click", () => {
+    botao.addEventListener("click",()=>{
 
 
         if(localStorage.getItem("curtiu-" + id)){
@@ -67,9 +67,7 @@ botoesLike.forEach(botao => {
         }
 
 
-
         quantidade++;
-
 
 
         localStorage.setItem(
@@ -89,7 +87,6 @@ botoesLike.forEach(botao => {
         quantidade + " curtidas";
 
 
-
         botao.innerHTML =
         "❤️ Curtido";
 
@@ -107,6 +104,7 @@ botoesLike.forEach(botao => {
 
 
 
+
 // ========================
 // NOTÍCIAS
 // ========================
@@ -115,60 +113,54 @@ botoesLike.forEach(botao => {
 const noticias = {
 
 
-    1: `
-    <h2>🌍 Novo mapa</h2>
+1:`
 
-    <p>
-    O novo mapa do Horizon traz um mundo aberto
-    gigantesco com cidades, estradas, montanhas
-    e novos lugares para explorar.
-    </p>
+<h2>🌍 Novo mapa</h2>
 
-    <br>
+<p>
+O novo mapa do Horizon traz um mundo aberto enorme,
+com cidades, estradas e novos desafios.
+</p>
 
-    <p>
-    Os jogadores poderão participar de corridas,
-    eventos especiais e desafios espalhados pelo mapa.
-    </p>
-    `,
+<br>
 
+<p>
+Explore novas regiões e participe de eventos especiais.
+</p>
 
-
-    2: `
-    <h2>🚗 Novos carros</h2>
-
-    <p>
-    A temporada apresenta novos veículos,
-    supercarros e clássicos que podem ser
-    personalizados.
-    </p>
-
-    <br>
-
-    <p>
-    Cada carro possui características diferentes
-    para velocidade, controle e aceleração.
-    </p>
-    `,
+`,
 
 
 
-    3: `
-    <h2>🏁 Festival Horizon</h2>
+2:`
 
-    <p>
-    O Festival Horizon reúne pilotos em eventos,
-    campeonatos e desafios.
-    </p>
+<h2>🚗 Novos carros</h2>
 
-    <br>
+<p>
+A temporada apresenta novos veículos,
+supercarros e clássicos.
+</p>
 
-    <p>
-    Complete missões e desbloqueie recompensas
-    exclusivas.
-    </p>
-    `
+<br>
 
+<p>
+Todos podem ser personalizados e melhorados.
+</p>
+
+`,
+
+
+
+3:`
+
+<h2>🏁 Festival Horizon</h2>
+
+<p>
+Grandes eventos, corridas e campeonatos esperam
+pelos melhores pilotos.
+</p>
+
+`
 
 };
 
@@ -188,160 +180,171 @@ document.querySelector(".conteudo-modal");
 
 
 
-botoesLer.forEach(botao => {
+botoesLer.forEach(botao=>{
 
 
-    botao.addEventListener("click", () => {
+botao.addEventListener("click",()=>{
 
 
-        const id =
-        botao.closest(".card").dataset.id;
+const id =
+botao.closest(".card").dataset.id;
 
 
-
-        conteudoModal.innerHTML =
-        noticias[id];
-
+conteudoModal.innerHTML =
+noticias[id];
 
 
-        modal.style.display = "flex";
+modal.style.display="flex";
 
 
-    });
+});
 
 
 });
 
 
 
-
-
-const fecharModal =
+const fechar =
 document.querySelector(".fechar");
 
 
+if(fechar){
 
-if(fecharModal){
+fechar.onclick=()=>{
 
-    fecharModal.addEventListener("click",()=>{
+modal.style.display="none";
 
-        modal.style.display="none";
-
-    });
+};
 
 }
 
 
 
 
+
+
 // ========================
-// CARROS EM DESTAQUE
+// CARROS
 // ========================
 
 
 const carros = {
 
 
-    ferrari:`
+ferrari:`
 
-    <h2>🏎️ Ferrari</h2>
+<h2>🏎️ Ferrari SF90 Stradale</h2>
 
-    <p>
-    Modelo: Ferrari SF90 Stradale
-    </p>
-
-    <p>
-    Uma máquina italiana híbrida focada em
-    velocidade extrema e desempenho.
-    </p>
-
-    <br>
-
-    <p>
-    🔥 Potência: 986 cv<br>
-    ⚡ 0-100 km/h: 2,5 segundos<br>
-    🌍 País: Itália
-    </p>
-
-    `,
+<img class="img-carro"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2020_Ferrari_SF90_Stradale.jpg/640px-2020_Ferrari_SF90_Stradale.jpg">
 
 
+<p>
+Supercarro italiano híbrido com tecnologia
+inspirada na Fórmula 1.
+</p>
 
-    lamborghini:`
 
-    <h2>🏎️ Lamborghini</h2>
+<div class="status">
 
-    <p>
-    Modelo: Lamborghini Revuelto
-    </p>
+🔥 Potência: 986 cv<br>
+⚡ Velocidade: 10/10<br>
+🎯 Controle: 9/10<br>
+🌍 Itália
 
-    <p>
-    Um supercarro com motor V12 e design
-    agressivo.
-    </p>
+</div>
 
-    <br>
-
-    <p>
-    🔥 Potência: 1001 cv<br>
-    ⚡ 0-100 km/h: 2,5 segundos<br>
-    🌍 País: Itália
-    </p>
-
-    `,
+`,
 
 
 
-    porsche:`
 
-    <h2>🏎️ Porsche</h2>
+lamborghini:`
 
-    <p>
-    Modelo: Porsche 911 GT3 RS
-    </p>
-
-    <p>
-    Conhecido pelo equilíbrio perfeito entre
-    velocidade e controle.
-    </p>
-
-    <br>
-
-    <p>
-    🔥 Potência: 525 cv<br>
-    ⚡ 0-100 km/h: 3,2 segundos<br>
-    🌍 País: Alemanha
-    </p>
-
-    `,
+<h2>🏎️ Lamborghini Revuelto</h2>
 
 
+<img class="img-carro"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Lamborghini_Revuelto_IMG_01.jpg/640px-Lamborghini_Revuelto_IMG_01.jpg">
 
-    nissan:`
 
-    <h2>🏎️ Nissan</h2>
+<p>
+Um V12 híbrido com design agressivo
+e desempenho extremo.
+</p>
 
-    <p>
-    Modelo: Nissan GT-R R35
-    </p>
 
-    <p>
-    O famoso Godzilla japonês, perfeito para
-    tunagem e corridas de rua.
-    </p>
+<div class="status">
 
-    <br>
+🔥 Potência: 1001 cv<br>
+⚡ Velocidade: 10/10<br>
+🎯 Controle: 8/10<br>
+🌍 Itália
 
-    <p>
-    🔥 Potência: 565 cv<br>
-    ⚡ 0-100 km/h: 2,7 segundos<br>
-    🌍 País: Japão
-    </p>
+</div>
 
-    `
+`,
 
+
+
+
+porsche:`
+
+<h2>🏎️ Porsche 911 GT3 RS</h2>
+
+
+<img class="img-carro"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Porsche_911_GT3_RS_992.jpg/640px-Porsche_911_GT3_RS_992.jpg">
+
+
+<p>
+Um dos melhores carros para pistas,
+com equilíbrio perfeito.
+</p>
+
+
+<div class="status">
+
+🔥 Potência: 525 cv<br>
+⚡ Velocidade: 9/10<br>
+🎯 Controle: 10/10<br>
+🌍 Alemanha
+
+</div>
+
+`,
+
+
+
+
+nissan:`
+
+<h2>🏎️ Nissan GT-R R35</h2>
+
+
+<img class="img-carro"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nissan_GT-R_R35.jpg/640px-Nissan_GT-R_R35.jpg">
+
+
+<p>
+O famoso Godzilla japonês,
+perfeito para tunagem.
+</p>
+
+
+<div class="status">
+
+🔥 Potência: 565 cv<br>
+⚡ Velocidade: 9/10<br>
+🎯 Controle: 9/10<br>
+🌍 Japão
+
+</div>
+
+`
 
 };
+
 
 
 
@@ -360,32 +363,27 @@ document.querySelector(".conteudo-carro");
 
 
 
-carrosCards.forEach(carro => {
+carrosCards.forEach(carro=>{
 
 
-    carro.addEventListener("click",()=>{
+carro.addEventListener("click",()=>{
 
 
-        const nome =
-        carro.dataset.carro;
+const nome =
+carro.dataset.carro;
 
 
-
-        conteudoCarro.innerHTML =
-        carros[nome];
-
+conteudoCarro.innerHTML =
+carros[nome];
 
 
-        modalCarro.style.display =
-        "flex";
-
-
-    });
+modalCarro.style.display="flex";
 
 
 });
 
 
+});
 
 
 
@@ -393,40 +391,34 @@ const fecharCarro =
 document.querySelector(".fechar-carro");
 
 
-
 if(fecharCarro){
 
-    fecharCarro.addEventListener("click",()=>{
+fecharCarro.onclick=()=>{
 
-        modalCarro.style.display="none";
+modalCarro.style.display="none";
 
-    });
+};
 
 }
 
 
 
 
+window.onclick=(evento)=>{
 
 
-// Fechar clicando fora das janelas
+if(evento.target===modal){
 
-window.addEventListener("click",(evento)=>{
+modal.style.display="none";
 
-
-    if(evento.target === modal){
-
-        modal.style.display="none";
-
-    }
+}
 
 
+if(evento.target===modalCarro){
 
-    if(evento.target === modalCarro){
+modalCarro.style.display="none";
 
-        modalCarro.style.display="none";
-
-    }
+}
 
 
-});
+};

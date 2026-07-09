@@ -41,6 +41,7 @@ header p{
 
 
 
+
 nav{
 
     background:#1b1b1b;
@@ -74,6 +75,7 @@ nav a:hover{
 
 
 
+
 .banner img{
 
     width:100%;
@@ -81,6 +83,7 @@ nav a:hover{
     object-fit:cover;
 
 }
+
 
 
 
@@ -98,12 +101,15 @@ main{
 
 
 
+
 h2{
 
     color:#ff3b3b;
     margin-bottom:20px;
 
 }
+
+
 
 
 
@@ -136,6 +142,8 @@ h2{
 
 
 
+
+
 .card h3{
 
     margin-bottom:10px;
@@ -147,7 +155,9 @@ h2{
 
 
 
-/* AREA DOS BOTÕES */
+
+
+/* BOTÕES */
 
 
 .acoes{
@@ -156,13 +166,14 @@ h2{
 
     display:flex;
 
-    align-items:center;
-
     gap:15px;
+
+    align-items:center;
 
     flex-wrap:wrap;
 
 }
+
 
 
 
@@ -206,32 +217,26 @@ button{
 
     transform:scale(1.05);
 
-
 }
+
 
 
 
 
 .btn-like.ativo{
 
-
     background:#700000;
 
-
 }
-
-
 
 
 
 .likes{
 
-
     color:#ccc;
 
-    font-size:15px;
-
 }
+
 
 
 
@@ -253,7 +258,6 @@ button{
 
     margin-bottom:40px;
 
-
 }
 
 
@@ -274,9 +278,10 @@ button{
 
     border:2px solid transparent;
 
+    cursor:pointer;
+
 
 }
-
 
 
 
@@ -285,10 +290,14 @@ button{
 
     border-color:#d50000;
 
-    transform:scale(1.05);
+    transform:scale(1.08);
+
+    box-shadow:0 0 20px rgba(255,0,0,.4);
 
 
 }
+
+
 
 
 
@@ -317,10 +326,12 @@ button{
 
 
 
-/* MODAL */
+
+/* MODAIS */
 
 
-.modal{
+.modal,
+.modal-carro{
 
 
     display:none;
@@ -350,6 +361,7 @@ button{
 
 
 
+
 .modal-box{
 
 
@@ -369,6 +381,10 @@ button{
 
     line-height:1.7;
 
+    max-height:90vh;
+
+    overflow:auto;
+
 
 }
 
@@ -376,17 +392,9 @@ button{
 
 
 
-.modal-box h2{
 
-    margin-bottom:20px;
-
-}
-
-
-
-
-
-.fechar{
+.fechar,
+.fechar-carro{
 
 
     position:absolute;
@@ -409,6 +417,59 @@ button{
 
 
 }
+
+
+
+
+
+
+
+/* IMAGENS DOS CARROS */
+
+
+.img-carro{
+
+    width:100%;
+
+    max-height:260px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    margin:15px 0;
+
+
+}
+
+
+
+
+
+
+/* STATUS DOS CARROS */
+
+
+.status{
+
+
+    background:#111;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    border-radius:8px;
+
+    border-left:4px solid red;
+
+    line-height:2;
+
+    font-size:16px;
+
+
+}
+
 
 
 
@@ -454,8 +515,6 @@ nav{
 
     flex-direction:column;
 
-    gap:15px;
-
     text-align:center;
 
 }
@@ -468,6 +527,7 @@ nav{
     height:220px;
 
 }
+
 
 
 
