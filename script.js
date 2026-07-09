@@ -4,21 +4,14 @@
 
 const cards = document.querySelectorAll(".card");
 
-
 cards.forEach(card => {
 
     card.addEventListener("mouseenter", () => {
-
-        card.style.boxShadow =
-        "0 0 20px rgba(255,0,0,.5)";
-
+        card.style.boxShadow = "0 0 20px rgba(255,0,0,.5)";
     });
 
-
     card.addEventListener("mouseleave", () => {
-
         card.style.boxShadow = "none";
-
     });
 
 });
@@ -30,12 +23,10 @@ cards.forEach(card => {
 // SISTEMA DE LIKE
 // ========================
 
-
 const botoesLike = document.querySelectorAll(".btn-like");
 
 
 botoesLike.forEach(botao => {
-
 
     const card = botao.closest(".card");
 
@@ -48,33 +39,22 @@ botoesLike.forEach(botao => {
     Number(localStorage.getItem("likes-" + id)) || 0;
 
 
-
     contador.textContent =
     quantidade + " curtidas";
 
 
-
     if(localStorage.getItem("curtiu-" + id)){
 
-
-        botao.innerHTML =
-        "❤️ Curtido";
-
-
+        botao.innerHTML = "❤️ Curtido";
         botao.classList.add("ativo");
 
     }
 
 
-
-
     botao.addEventListener("click",()=>{
 
-
         if(localStorage.getItem("curtiu-" + id)){
-
             return;
-
         }
 
 
@@ -93,7 +73,6 @@ botoesLike.forEach(botao => {
         );
 
 
-
         contador.textContent =
         quantidade + " curtidas";
 
@@ -104,12 +83,9 @@ botoesLike.forEach(botao => {
 
         botao.classList.add("ativo");
 
-
     });
 
-
 });
-
 
 
 
@@ -122,80 +98,44 @@ botoesLike.forEach(botao => {
 
 const noticias = {
 
-
 1:`
-
 <h2>🌍 Novo mapa</h2>
 
 <p>
 O novo mapa do Horizon traz um mundo aberto enorme,
 com cidades, estradas e novos desafios.
 </p>
-
-<br>
-
-<p>
-Explore novas regiões e participe de eventos especiais.
-</p>
-
 `,
 
-
-
 2:`
-
 <h2>🚗 Novos carros</h2>
 
 <p>
 A temporada apresenta novos veículos,
 supercarros e clássicos.
 </p>
-
-<br>
-
-<p>
-Todos podem ser personalizados e melhorados.
-</p>
-
 `,
 
-
-
 3:`
-
 <h2>🏁 Festival Horizon</h2>
 
 <p>
 Grandes eventos, corridas e campeonatos esperam
 pelos melhores pilotos.
 </p>
-
 `
 
 };
 
 
 
+const modal = document.querySelector(".modal");
+const conteudoModal = document.querySelector(".conteudo-modal");
 
 
-const botoesLer =
-document.querySelectorAll(".btn-ler");
-
-
-const modal =
-document.querySelector(".modal");
-
-
-const conteudoModal =
-document.querySelector(".conteudo-modal");
-
-
-
-botoesLer.forEach(botao=>{
-
+document.querySelectorAll(".btn-ler").forEach(botao=>{
 
     botao.addEventListener("click",()=>{
-
 
         const id =
         botao.closest(".card").dataset.id;
@@ -207,30 +147,17 @@ botoesLer.forEach(botao=>{
 
         modal.style.display="flex";
 
-
     });
-
 
 });
 
 
 
+document.querySelector(".fechar").onclick=()=>{
 
+    modal.style.display="none";
 
-const fechar =
-document.querySelector(".fechar");
-
-
-if(fechar){
-
-    fechar.onclick=()=>{
-
-        modal.style.display="none";
-
-    };
-
-}
-
+};
 
 
 
@@ -250,7 +177,8 @@ ferrari:`
 
 <h2>🏎️ Ferrari SF90 Stradale</h2>
 
-<img class="img-carro" src="imagens/ferrari.jpg">
+<img class="img-carro"
+src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=900">
 
 
 <p>
@@ -272,18 +200,16 @@ inspirada na Fórmula 1.
 
 
 
-
-
 lamborghini:`
 
-<h2>🏎️ Lamborghini Revuelto</h2>
+<h2>🏎️ Lamborghini</h2>
 
-<img class="img-carro" src="imagens/lamborghini.jpg">
+<img class="img-carro"
+src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=900">
 
 
 <p>
-Um V12 híbrido com design agressivo
-e desempenho extremo.
+Design agressivo e desempenho extremo.
 </p>
 
 
@@ -300,13 +226,12 @@ e desempenho extremo.
 
 
 
-
-
 porsche:`
 
 <h2>🏎️ Porsche 911 GT3 RS</h2>
 
-<img class="img-carro" src="imagens/porsche.jpg">
+<img class="img-carro"
+src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900">
 
 
 <p>
@@ -328,13 +253,12 @@ com equilíbrio perfeito.
 
 
 
-
-
 nissan:`
 
-<h2>🏎️ Nissan GT-R R35</h2>
+<h2>🏎️ Nissan GT-R</h2>
 
-<img class="img-carro" src="imagens/nissan.jpg">
+<img class="img-carro"
+src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=900">
 
 
 <p>
@@ -361,12 +285,6 @@ perfeito para tunagem.
 
 
 
-
-
-const carrosCards =
-document.querySelectorAll(".carro");
-
-
 const modalCarro =
 document.querySelector(".modal-carro");
 
@@ -376,7 +294,7 @@ document.querySelector(".conteudo-carro");
 
 
 
-carrosCards.forEach(carro=>{
+document.querySelectorAll(".carro").forEach(carro=>{
 
 
     carro.addEventListener("click",()=>{
@@ -390,8 +308,7 @@ carrosCards.forEach(carro=>{
         carros[nome];
 
 
-        modalCarro.style.display =
-        "flex";
+        modalCarro.style.display="flex";
 
 
     });
@@ -403,23 +320,11 @@ carrosCards.forEach(carro=>{
 
 
 
+document.querySelector(".fechar-carro").onclick=()=>{
 
+    modalCarro.style.display="none";
 
-const fecharCarro =
-document.querySelector(".fechar-carro");
-
-
-if(fecharCarro){
-
-    fecharCarro.onclick=()=>{
-
-        modalCarro.style.display="none";
-
-    };
-
-}
-
-
+};
 
 
 
@@ -428,19 +333,18 @@ if(fecharCarro){
 window.onclick=(evento)=>{
 
 
-    if(evento.target === modal){
+if(evento.target === modal){
 
-        modal.style.display="none";
+modal.style.display="none";
 
-    }
+}
 
 
+if(evento.target === modalCarro){
 
-    if(evento.target === modalCarro){
+modalCarro.style.display="none";
 
-        modalCarro.style.display="none";
-
-    }
+}
 
 
 };
