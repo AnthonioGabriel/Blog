@@ -7,12 +7,18 @@ const cards = document.querySelectorAll(".card");
 cards.forEach(card => {
 
     card.addEventListener("mouseenter", () => {
-        card.style.boxShadow = "0 0 20px rgba(255,0,0,.5)";
+
+        card.style.boxShadow =
+        "0 0 20px rgba(255,0,0,.5)";
+
     });
 
 
     card.addEventListener("mouseleave", () => {
-        card.style.boxShadow = "none";
+
+        card.style.boxShadow =
+        "none";
+
     });
 
 });
@@ -21,47 +27,67 @@ cards.forEach(card => {
 
 
 // ========================
-// LIKE
+// SISTEMA DE LIKE
 // ========================
 
-const botoesLike = document.querySelectorAll(".btn-like");
+const botoesLike =
+document.querySelectorAll(".btn-like");
 
 
 botoesLike.forEach(botao => {
 
-    const card = botao.closest(".card");
 
-    const id = card.dataset.id;
+    const card =
+    botao.closest(".card");
 
-    const contador = card.querySelector(".likes");
+
+    const id =
+    card.dataset.id;
+
+
+    const contador =
+    card.querySelector(".likes");
+
 
 
     let quantidade =
     Number(localStorage.getItem("likes-"+id)) || 0;
 
 
+
     contador.textContent =
-    quantidade+" curtidas";
+    quantidade + " curtidas";
+
 
 
     if(localStorage.getItem("curtiu-"+id)){
 
-        botao.innerHTML="❤️ Curtido";
+
+        botao.innerHTML =
+        "❤️ Curtido";
+
+
         botao.classList.add("ativo");
 
     }
 
 
 
-    botao.onclick=()=>{
+
+
+    botao.addEventListener("click",()=>{
 
 
         if(localStorage.getItem("curtiu-"+id)){
+
             return;
+
         }
 
 
+
         quantidade++;
+
 
 
         localStorage.setItem(
@@ -70,22 +96,28 @@ botoesLike.forEach(botao => {
         );
 
 
+
         localStorage.setItem(
             "curtiu-"+id,
             "true"
         );
 
 
+
         contador.textContent =
-        quantidade+" curtidas";
+        quantidade + " curtidas";
 
 
-        botao.innerHTML="❤️ Curtido";
+
+        botao.innerHTML =
+        "❤️ Curtido";
+
 
         botao.classList.add("ativo");
 
 
-    };
+    });
+
 
 
 });
@@ -95,45 +127,169 @@ botoesLike.forEach(botao => {
 
 
 
-
-
 // ========================
-// NOTÍCIAS
+// NOTÍCIAS COMPLETAS
 // ========================
 
 
-const noticias={
+const noticias = {
 
 
 1:`
+
 <h2>🌍 Novo mapa</h2>
 
+
 <p>
-O novo mapa do Forza Horizon traz novas cidades,
-estradas, montanhas e desafios.
+O Forza Horizon 6 apresenta um novo mundo aberto
+feito para exploração, velocidade e aventura.
 </p>
+
+
+<br>
+
+
+<p>
+O mapa possui grandes cidades, estradas,
+montanhas e áreas especiais para testar
+todos os tipos de veículos.
+</p>
+
+
+<br>
+
+
+<h3>🏔️ Exploração livre</h3>
+
+
+<p>
+Os jogadores podem descobrir novos lugares,
+encontrar desafios escondidos e participar
+de eventos espalhados pelo mapa.
+</p>
+
+
+<br>
+
+
+<h3>🏁 Novos eventos</h3>
+
+
+<p>
+Corridas de rua, desafios de velocidade
+e competições especiais fazem parte da nova
+temporada Horizon.
+</p>
+
+
 `,
+
+
 
 
 
 2:`
+
 <h2>🚗 Novos carros</h2>
 
+
 <p>
-A temporada adiciona novos veículos,
-melhorias e carros especiais.
+A nova temporada traz uma coleção de carros
+lendários, supercarros modernos e veículos
+preparados para competição.
 </p>
+
+
+<br>
+
+
+<h3>🔧 Personalização</h3>
+
+
+<p>
+Cada carro pode receber novas pinturas,
+melhorias de motor, ajustes de suspensão
+e modificações de desempenho.
+</p>
+
+
+<br>
+
+
+<h3>⚡ Desempenho</h3>
+
+
+<p>
+Os veículos possuem diferenças de aceleração,
+velocidade máxima e controle, permitindo que
+cada jogador escolha seu estilo de corrida.
+</p>
+
+
+<br>
+
+
+<h3>🏎️ Colecione</h3>
+
+
+<p>
+Aumente sua garagem desbloqueando carros
+exclusivos durante os eventos da temporada.
+</p>
+
+
 `,
 
 
 
+
+
 3:`
+
 <h2>🏁 Festival Horizon</h2>
 
+
 <p>
-Participe de corridas, campeonatos e eventos
-para ganhar recompensas.
+O Festival Horizon é o centro das maiores
+competições de corrida do jogo.
 </p>
+
+
+<br>
+
+
+<h3>🏆 Campeonatos</h3>
+
+
+<p>
+Participe de torneios contra outros pilotos,
+supere desafios e conquiste posições melhores.
+</p>
+
+
+<br>
+
+
+<h3>🎁 Recompensas</h3>
+
+
+<p>
+Complete missões para liberar novos carros,
+itens exclusivos e conteúdos especiais.
+</p>
+
+
+<br>
+
+
+<h3>🔥 Evolução</h3>
+
+
+<p>
+Quanto mais você participa dos eventos,
+mais sua coleção e sua reputação aumentam.
+</p>
+
 
 `
 
@@ -142,79 +298,96 @@ para ganhar recompensas.
 
 
 
-const modal=document.querySelector(".modal");
 
-const conteudoModal=document.querySelector(".conteudo-modal");
-
-
-document.querySelectorAll(".btn-ler").forEach(botao=>{
+const modal =
+document.querySelector(".modal");
 
 
-botao.onclick=()=>{
+const conteudoModal =
+document.querySelector(".conteudo-modal");
 
 
-let id =
-botao.closest(".card").dataset.id;
+
+document.querySelectorAll(".btn-ler")
+.forEach(botao=>{
 
 
-conteudoModal.innerHTML =
-noticias[id];
+    botao.addEventListener("click",()=>{
 
 
-modal.style.display="flex";
+        const id =
+        botao.closest(".card").dataset.id;
 
 
-};
+
+        conteudoModal.innerHTML =
+        noticias[id];
+
+
+
+        modal.style.display =
+        "flex";
+
+
+    });
 
 
 });
 
 
 
-document.querySelector(".fechar").onclick=()=>{
+const fechar =
+document.querySelector(".fechar");
+
+
+if(fechar){
+
+fechar.onclick=()=>{
 
 modal.style.display="none";
 
 };
 
-
-
-
-
-
-
-
+}
 // ========================
-// CARROS
+// CARROS EM DESTAQUE
 // ========================
 
 
-const carros={
+const carros = {
 
 
 ferrari:`
 
 <h2>🏎️ Ferrari SF90 Stradale</h2>
 
+
 <img class="img-carro"
 src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2020_Ferrari_SF90_Stradale.jpg/800px-2020_Ferrari_SF90_Stradale.jpg">
 
 
 <p>
-Superesportivo italiano híbrido.
+Um dos carros mais avançados da Ferrari.
+Seu sistema híbrido combina motor a combustão
+com motores elétricos para entregar desempenho extremo.
 </p>
+
+
+<br>
 
 
 <div class="status">
 
 🔥 Potência: 986 cv<br>
-⚡ Velocidade: 10/10<br>
+⚡ 0-100 km/h: 2,5 segundos<br>
+🏎️ Velocidade máxima: 340 km/h<br>
 🎯 Controle: 9/10<br>
-🌍 Itália
+🌍 País: Itália
 
 </div>
 
 `,
+
 
 
 
@@ -223,25 +396,32 @@ lamborghini:`
 
 <h2>🏎️ Lamborghini Revuelto</h2>
 
+
 <img class="img-carro"
 src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Lamborghini_Revuelto_IMG_01.jpg/800px-Lamborghini_Revuelto_IMG_01.jpg">
 
 
 <p>
-V12 híbrido com desempenho extremo.
+O novo V12 híbrido da Lamborghini mistura
+força bruta, tecnologia e um design agressivo.
 </p>
+
+
+<br>
 
 
 <div class="status">
 
 🔥 Potência: 1001 cv<br>
-⚡ Velocidade: 10/10<br>
+⚡ 0-100 km/h: 2,5 segundos<br>
+🏎️ Velocidade máxima: 350 km/h<br>
 🎯 Controle: 8/10<br>
-🌍 Itália
+🌍 País: Itália
 
 </div>
 
 `,
+
 
 
 
@@ -250,26 +430,33 @@ porsche:`
 
 <h2>🏎️ Porsche 911 GT3 RS</h2>
 
+
 <img class="img-carro"
 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Porsche_911_GT3_RS_992.jpg/800px-Porsche_911_GT3_RS_992.jpg">
 
 
 <p>
-Carro focado em pista,
-com equilíbrio perfeito.
+Criado para pistas, o Porsche 911 GT3 RS
+é conhecido pelo equilíbrio perfeito entre
+velocidade e controle.
 </p>
+
+
+<br>
 
 
 <div class="status">
 
 🔥 Potência: 525 cv<br>
-⚡ Velocidade: 9/10<br>
+⚡ 0-100 km/h: 3,2 segundos<br>
+🏎️ Velocidade máxima: 296 km/h<br>
 🎯 Controle: 10/10<br>
-🌍 Alemanha
+🌍 País: Alemanha
 
 </div>
 
 `,
+
 
 
 
@@ -284,16 +471,22 @@ src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nissan_GT-R_R35.j
 
 
 <p>
-O famoso Godzilla japonês.
+Conhecido como Godzilla, o Nissan GT-R
+é famoso pela sua potência e capacidade
+de receber modificações.
 </p>
+
+
+<br>
 
 
 <div class="status">
 
 🔥 Potência: 565 cv<br>
-⚡ Velocidade: 9/10<br>
+⚡ 0-100 km/h: 2,7 segundos<br>
+🏎️ Velocidade máxima: 315 km/h<br>
 🎯 Controle: 9/10<br>
-🌍 Japão
+🌍 País: Japão
 
 </div>
 
@@ -307,30 +500,39 @@ O famoso Godzilla japonês.
 
 
 
-const modalCarro=document.querySelector(".modal-carro");
-
-const conteudoCarro=document.querySelector(".conteudo-carro");
-
+const modalCarro =
+document.querySelector(".modal-carro");
 
 
-document.querySelectorAll(".carro").forEach(carro=>{
+const conteudoCarro =
+document.querySelector(".conteudo-carro");
 
 
-carro.onclick=()=>{
 
 
-let nome =
-carro.dataset.carro;
+
+document.querySelectorAll(".carro")
+.forEach(carro=>{
 
 
-conteudoCarro.innerHTML =
-carros[nome];
+    carro.addEventListener("click",()=>{
 
 
-modalCarro.style.display="flex";
+        const nome =
+        carro.dataset.carro;
 
 
-};
+
+        conteudoCarro.innerHTML =
+        carros[nome];
+
+
+
+        modalCarro.style.display =
+        "flex";
+
+
+    });
 
 
 });
@@ -338,30 +540,55 @@ modalCarro.style.display="flex";
 
 
 
-document.querySelector(".fechar-carro").onclick=()=>{
-
-modalCarro.style.display="none";
-
-};
 
 
 
-
-window.onclick=(e)=>{
-
-
-if(e.target==modal){
-
-modal.style.display="none";
-
-}
+const fecharCarro =
+document.querySelector(".fechar-carro");
 
 
-if(e.target==modalCarro){
 
-modalCarro.style.display="none";
+if(fecharCarro){
+
+
+    fecharCarro.onclick=()=>{
+
+
+        modalCarro.style.display="none";
+
+
+    };
+
 
 }
+
+
+
+
+
+
+
+// ========================
+// FECHAR MODAIS
+// ========================
+
+
+window.onclick=(evento)=>{
+
+
+    if(evento.target === modal){
+
+        modal.style.display="none";
+
+    }
+
+
+
+    if(evento.target === modalCarro){
+
+        modalCarro.style.display="none";
+
+    }
 
 
 };
