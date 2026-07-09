@@ -10,6 +10,7 @@ cards.forEach(card => {
         card.style.boxShadow = "0 0 20px rgba(255,0,0,.5)";
     });
 
+
     card.addEventListener("mouseleave", () => {
         card.style.boxShadow = "none";
     });
@@ -20,7 +21,7 @@ cards.forEach(card => {
 
 
 // ========================
-// SISTEMA DE LIKE
+// LIKE
 // ========================
 
 const botoesLike = document.querySelectorAll(".btn-like");
@@ -36,24 +37,26 @@ botoesLike.forEach(botao => {
 
 
     let quantidade =
-    Number(localStorage.getItem("likes-" + id)) || 0;
+    Number(localStorage.getItem("likes-"+id)) || 0;
 
 
     contador.textContent =
-    quantidade + " curtidas";
+    quantidade+" curtidas";
 
 
-    if(localStorage.getItem("curtiu-" + id)){
+    if(localStorage.getItem("curtiu-"+id)){
 
-        botao.innerHTML = "❤️ Curtido";
+        botao.innerHTML="❤️ Curtido";
         botao.classList.add("ativo");
 
     }
 
 
-    botao.addEventListener("click",()=>{
 
-        if(localStorage.getItem("curtiu-" + id)){
+    botao.onclick=()=>{
+
+
+        if(localStorage.getItem("curtiu-"+id)){
             return;
         }
 
@@ -62,30 +65,33 @@ botoesLike.forEach(botao => {
 
 
         localStorage.setItem(
-            "likes-" + id,
+            "likes-"+id,
             quantidade
         );
 
 
         localStorage.setItem(
-            "curtiu-" + id,
+            "curtiu-"+id,
             "true"
         );
 
 
         contador.textContent =
-        quantidade + " curtidas";
+        quantidade+" curtidas";
 
 
-        botao.innerHTML =
-        "❤️ Curtido";
-
+        botao.innerHTML="❤️ Curtido";
 
         botao.classList.add("ativo");
 
-    });
+
+    };
+
 
 });
+
+
+
 
 
 
@@ -96,58 +102,70 @@ botoesLike.forEach(botao => {
 // ========================
 
 
-const noticias = {
+const noticias={
+
 
 1:`
 <h2>🌍 Novo mapa</h2>
 
 <p>
-O novo mapa do Horizon traz um mundo aberto enorme,
-com cidades, estradas e novos desafios.
+O novo mapa do Forza Horizon traz novas cidades,
+estradas, montanhas e desafios.
 </p>
 `,
+
+
 
 2:`
 <h2>🚗 Novos carros</h2>
 
 <p>
-A temporada apresenta novos veículos,
-supercarros e clássicos.
+A temporada adiciona novos veículos,
+melhorias e carros especiais.
 </p>
 `,
+
+
 
 3:`
 <h2>🏁 Festival Horizon</h2>
 
 <p>
-Grandes eventos, corridas e campeonatos esperam
-pelos melhores pilotos.
+Participe de corridas, campeonatos e eventos
+para ganhar recompensas.
 </p>
+
 `
 
 };
 
 
 
-const modal = document.querySelector(".modal");
-const conteudoModal = document.querySelector(".conteudo-modal");
+
+const modal=document.querySelector(".modal");
+
+const conteudoModal=document.querySelector(".conteudo-modal");
 
 
 document.querySelectorAll(".btn-ler").forEach(botao=>{
 
-    botao.addEventListener("click",()=>{
 
-        const id =
-        botao.closest(".card").dataset.id;
+botao.onclick=()=>{
 
 
-        conteudoModal.innerHTML =
-        noticias[id];
+let id =
+botao.closest(".card").dataset.id;
 
 
-        modal.style.display="flex";
+conteudoModal.innerHTML =
+noticias[id];
 
-    });
+
+modal.style.display="flex";
+
+
+};
+
 
 });
 
@@ -155,9 +173,10 @@ document.querySelectorAll(".btn-ler").forEach(botao=>{
 
 document.querySelector(".fechar").onclick=()=>{
 
-    modal.style.display="none";
+modal.style.display="none";
 
 };
+
 
 
 
@@ -170,7 +189,7 @@ document.querySelector(".fechar").onclick=()=>{
 // ========================
 
 
-const carros = {
+const carros={
 
 
 ferrari:`
@@ -178,12 +197,11 @@ ferrari:`
 <h2>🏎️ Ferrari SF90 Stradale</h2>
 
 <img class="img-carro"
-src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=900">
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2020_Ferrari_SF90_Stradale.jpg/800px-2020_Ferrari_SF90_Stradale.jpg">
 
 
 <p>
-Supercarro italiano híbrido com tecnologia
-inspirada na Fórmula 1.
+Superesportivo italiano híbrido.
 </p>
 
 
@@ -200,16 +218,17 @@ inspirada na Fórmula 1.
 
 
 
+
 lamborghini:`
 
-<h2>🏎️ Lamborghini</h2>
+<h2>🏎️ Lamborghini Revuelto</h2>
 
 <img class="img-carro"
-src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=900">
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Lamborghini_Revuelto_IMG_01.jpg/800px-Lamborghini_Revuelto_IMG_01.jpg">
 
 
 <p>
-Design agressivo e desempenho extremo.
+V12 híbrido com desempenho extremo.
 </p>
 
 
@@ -226,16 +245,17 @@ Design agressivo e desempenho extremo.
 
 
 
+
 porsche:`
 
 <h2>🏎️ Porsche 911 GT3 RS</h2>
 
 <img class="img-carro"
-src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900">
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Porsche_911_GT3_RS_992.jpg/800px-Porsche_911_GT3_RS_992.jpg">
 
 
 <p>
-Um dos melhores carros para pistas,
+Carro focado em pista,
 com equilíbrio perfeito.
 </p>
 
@@ -253,17 +273,18 @@ com equilíbrio perfeito.
 
 
 
+
 nissan:`
 
-<h2>🏎️ Nissan GT-R</h2>
+<h2>🏎️ Nissan GT-R R35</h2>
+
 
 <img class="img-carro"
-src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=900">
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nissan_GT-R_R35.jpg/800px-Nissan_GT-R_R35.jpg">
 
 
 <p>
-O famoso Godzilla japonês,
-perfeito para tunagem.
+O famoso Godzilla japonês.
 </p>
 
 
@@ -285,33 +306,31 @@ perfeito para tunagem.
 
 
 
-const modalCarro =
-document.querySelector(".modal-carro");
 
+const modalCarro=document.querySelector(".modal-carro");
 
-const conteudoCarro =
-document.querySelector(".conteudo-carro");
+const conteudoCarro=document.querySelector(".conteudo-carro");
 
 
 
 document.querySelectorAll(".carro").forEach(carro=>{
 
 
-    carro.addEventListener("click",()=>{
+carro.onclick=()=>{
 
 
-        const nome =
-        carro.dataset.carro;
+let nome =
+carro.dataset.carro;
 
 
-        conteudoCarro.innerHTML =
-        carros[nome];
+conteudoCarro.innerHTML =
+carros[nome];
 
 
-        modalCarro.style.display="flex";
+modalCarro.style.display="flex";
 
 
-    });
+};
 
 
 });
@@ -319,28 +338,26 @@ document.querySelectorAll(".carro").forEach(carro=>{
 
 
 
-
 document.querySelector(".fechar-carro").onclick=()=>{
 
-    modalCarro.style.display="none";
+modalCarro.style.display="none";
 
 };
 
 
 
 
+window.onclick=(e)=>{
 
-window.onclick=(evento)=>{
 
-
-if(evento.target === modal){
+if(e.target==modal){
 
 modal.style.display="none";
 
 }
 
 
-if(evento.target === modalCarro){
+if(e.target==modalCarro){
 
 modalCarro.style.display="none";
 
