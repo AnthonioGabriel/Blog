@@ -8,12 +8,17 @@ const cards = document.querySelectorAll(".card");
 cards.forEach(card => {
 
     card.addEventListener("mouseenter", () => {
-        card.style.boxShadow = "0 0 20px rgba(255,0,0,.5)";
+
+        card.style.boxShadow =
+        "0 0 20px rgba(255,0,0,.5)";
+
     });
 
 
     card.addEventListener("mouseleave", () => {
+
         card.style.boxShadow = "none";
+
     });
 
 });
@@ -51,7 +56,10 @@ botoesLike.forEach(botao => {
 
     if(localStorage.getItem("curtiu-" + id)){
 
-        botao.innerHTML = "❤️ Curtido";
+
+        botao.innerHTML =
+        "❤️ Curtido";
+
 
         botao.classList.add("ativo");
 
@@ -59,11 +67,14 @@ botoesLike.forEach(botao => {
 
 
 
+
     botao.addEventListener("click",()=>{
 
 
         if(localStorage.getItem("curtiu-" + id)){
+
             return;
+
         }
 
 
@@ -98,7 +109,6 @@ botoesLike.forEach(botao => {
 
 
 });
-
 
 
 
@@ -167,6 +177,7 @@ pelos melhores pilotos.
 
 
 
+
 const botoesLer =
 document.querySelectorAll(".btn-ler");
 
@@ -183,24 +194,26 @@ document.querySelector(".conteudo-modal");
 botoesLer.forEach(botao=>{
 
 
-botao.addEventListener("click",()=>{
+    botao.addEventListener("click",()=>{
 
 
-const id =
-botao.closest(".card").dataset.id;
+        const id =
+        botao.closest(".card").dataset.id;
 
 
-conteudoModal.innerHTML =
-noticias[id];
+        conteudoModal.innerHTML =
+        noticias[id];
 
 
-modal.style.display="flex";
+        modal.style.display="flex";
+
+
+    });
 
 
 });
 
 
-});
 
 
 
@@ -210,13 +223,15 @@ document.querySelector(".fechar");
 
 if(fechar){
 
-fechar.onclick=()=>{
+    fechar.onclick=()=>{
 
-modal.style.display="none";
+        modal.style.display="none";
 
-};
+    };
 
 }
+
+
 
 
 
@@ -235,8 +250,7 @@ ferrari:`
 
 <h2>🏎️ Ferrari SF90 Stradale</h2>
 
-<img class="img-carro"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2020_Ferrari_SF90_Stradale.jpg/640px-2020_Ferrari_SF90_Stradale.jpg">
+<img class="img-carro" src="imagens/ferrari.jpg">
 
 
 <p>
@@ -259,13 +273,12 @@ inspirada na Fórmula 1.
 
 
 
+
 lamborghini:`
 
 <h2>🏎️ Lamborghini Revuelto</h2>
 
-
-<img class="img-carro"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Lamborghini_Revuelto_IMG_01.jpg/640px-Lamborghini_Revuelto_IMG_01.jpg">
+<img class="img-carro" src="imagens/lamborghini.jpg">
 
 
 <p>
@@ -288,13 +301,12 @@ e desempenho extremo.
 
 
 
+
 porsche:`
 
 <h2>🏎️ Porsche 911 GT3 RS</h2>
 
-
-<img class="img-carro"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Porsche_911_GT3_RS_992.jpg/640px-Porsche_911_GT3_RS_992.jpg">
+<img class="img-carro" src="imagens/porsche.jpg">
 
 
 <p>
@@ -317,13 +329,12 @@ com equilíbrio perfeito.
 
 
 
+
 nissan:`
 
 <h2>🏎️ Nissan GT-R R35</h2>
 
-
-<img class="img-carro"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nissan_GT-R_R35.jpg/640px-Nissan_GT-R_R35.jpg">
+<img class="img-carro" src="imagens/nissan.jpg">
 
 
 <p>
@@ -350,6 +361,8 @@ perfeito para tunagem.
 
 
 
+
+
 const carrosCards =
 document.querySelectorAll(".carro");
 
@@ -366,24 +379,29 @@ document.querySelector(".conteudo-carro");
 carrosCards.forEach(carro=>{
 
 
-carro.addEventListener("click",()=>{
+    carro.addEventListener("click",()=>{
 
 
-const nome =
-carro.dataset.carro;
+        const nome =
+        carro.dataset.carro;
 
 
-conteudoCarro.innerHTML =
-carros[nome];
+        conteudoCarro.innerHTML =
+        carros[nome];
 
 
-modalCarro.style.display="flex";
+        modalCarro.style.display =
+        "flex";
+
+
+    });
 
 
 });
 
 
-});
+
+
 
 
 
@@ -393,13 +411,16 @@ document.querySelector(".fechar-carro");
 
 if(fecharCarro){
 
-fecharCarro.onclick=()=>{
+    fecharCarro.onclick=()=>{
 
-modalCarro.style.display="none";
+        modalCarro.style.display="none";
 
-};
+    };
 
 }
+
+
+
 
 
 
@@ -407,18 +428,19 @@ modalCarro.style.display="none";
 window.onclick=(evento)=>{
 
 
-if(evento.target===modal){
+    if(evento.target === modal){
 
-modal.style.display="none";
+        modal.style.display="none";
 
-}
+    }
 
 
-if(evento.target===modalCarro){
 
-modalCarro.style.display="none";
+    if(evento.target === modalCarro){
 
-}
+        modalCarro.style.display="none";
+
+    }
 
 
 };
