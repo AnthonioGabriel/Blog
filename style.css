@@ -15,7 +15,6 @@ body{
 
 
 
-
 header{
 
     background:#d50000;
@@ -37,7 +36,6 @@ header p{
     margin-top:8px;
 
 }
-
 
 
 
@@ -75,7 +73,6 @@ nav a:hover{
 
 
 
-
 .banner img{
 
     width:100%;
@@ -83,8 +80,6 @@ nav a:hover{
     object-fit:cover;
 
 }
-
-
 
 
 
@@ -114,6 +109,8 @@ h2{
 
 
 
+/* NOTICIAS */
+
 
 .card{
 
@@ -137,10 +134,9 @@ h2{
 
     transform:translateY(-5px);
 
+    box-shadow:0 0 20px rgba(255,0,0,.5);
+
 }
-
-
-
 
 
 
@@ -149,8 +145,6 @@ h2{
     margin-bottom:10px;
 
 }
-
-
 
 
 
@@ -166,9 +160,9 @@ h2{
 
     display:flex;
 
-    gap:15px;
-
     align-items:center;
+
+    gap:15px;
 
     flex-wrap:wrap;
 
@@ -208,7 +202,6 @@ button{
 
 
 
-
 .btn-like:hover,
 .btn-ler:hover{
 
@@ -217,9 +210,8 @@ button{
 
     transform:scale(1.05);
 
+
 }
-
-
 
 
 
@@ -236,7 +228,6 @@ button{
     color:#ccc;
 
 }
-
 
 
 
@@ -262,7 +253,6 @@ button{
 
 
 
-
 .carro{
 
 
@@ -274,9 +264,9 @@ button{
 
     border-radius:10px;
 
-    transition:.3s;
-
     border:2px solid transparent;
+
+    transition:.3s;
 
     cursor:pointer;
 
@@ -296,8 +286,6 @@ button{
 
 
 }
-
-
 
 
 
@@ -327,7 +315,10 @@ button{
 
 
 
-/* MODAIS */
+/* ========================
+   MODAIS
+======================== */
+
 
 
 .modal,
@@ -336,27 +327,34 @@ button{
 
     display:none;
 
+
     position:fixed;
+
 
     top:0;
 
     left:0;
 
+
     width:100%;
+
 
     height:100%;
 
+
     background:rgba(0,0,0,.85);
+
 
     justify-content:center;
 
+
     align-items:center;
 
-    z-index:999;
+
+    z-index:9999;
 
 
 }
-
 
 
 
@@ -367,21 +365,30 @@ button{
 
     background:#1d1d1d;
 
+
     width:90%;
+
 
     max-width:650px;
 
+
     padding:35px;
+
 
     border-radius:10px;
 
+
     border-left:5px solid red;
+
 
     position:relative;
 
+
     line-height:1.7;
 
+
     max-height:90vh;
+
 
     overflow:auto;
 
@@ -399,21 +406,32 @@ button{
 
     position:absolute;
 
+
     right:15px;
+
 
     top:15px;
 
+
     background:red;
+
 
     color:white;
 
+
     width:35px;
+
 
     height:35px;
 
+
     border-radius:50%;
 
+
     font-size:18px;
+
+
+    cursor:pointer;
 
 
 }
@@ -424,23 +442,29 @@ button{
 
 
 
-/* IMAGENS DOS CARROS */
+/* IMAGEM DOS CARROS */
 
 
 .img-carro{
 
+
     width:100%;
+
 
     max-height:260px;
 
+
     object-fit:cover;
 
+
     border-radius:10px;
+
 
     margin:15px 0;
 
 
 }
+
 
 
 
@@ -455,20 +479,24 @@ button{
 
     background:#111;
 
+
     padding:15px;
+
 
     margin-top:20px;
 
+
     border-radius:8px;
+
 
     border-left:4px solid red;
 
-    line-height:2;
 
-    font-size:16px;
+    line-height:2;
 
 
 }
+
 
 
 
@@ -481,11 +509,15 @@ footer{
 
     margin-top:50px;
 
+
     background:#1b1b1b;
+
 
     text-align:center;
 
+
     padding:20px;
+
 
     color:#bbb;
 
@@ -498,8 +530,8 @@ footer{
 
 
 
-@media(max-width:700px){
 
+@media(max-width:700px){
 
 
 header h1{
@@ -507,7 +539,6 @@ header h1{
     font-size:30px;
 
 }
-
 
 
 
@@ -521,13 +552,11 @@ nav{
 
 
 
-
 .banner img{
 
     height:220px;
 
 }
-
 
 
 
