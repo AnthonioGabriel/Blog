@@ -1,4 +1,9 @@
-// Efeito dos cards
+
+console.log("Script carregou!");
+
+const botoesLike = document.querySelectorAll(".btn-like");
+
+console.log("Botões encontrados:", botoesLike.length);// Efeito dos cards
 const cards = document.querySelectorAll(".card");
 
 
