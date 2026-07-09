@@ -1,9 +1,7 @@
+// ========================
+// EFEITO DOS CARDS
+// ========================
 
-console.log("Script carregou!");
-
-const botoesLike = document.querySelectorAll(".btn-like");
-
-console.log("Botões encontrados:", botoesLike.length);// Efeito dos cards
 const cards = document.querySelectorAll(".card");
 
 
@@ -22,7 +20,6 @@ cards.forEach(card => {
         card.style.boxShadow = "none";
 
     });
-
 
 });
 
@@ -59,14 +56,12 @@ botoesLike.forEach(botao => {
 
 
 
-    // verifica se já curtiu
+    // Verifica se já curtiu
 
     if(localStorage.getItem("curtiu-" + id)){
 
 
-        botao.innerHTML =
-        "❤️ Curtido";
-
+        botao.innerHTML = "❤️ Curtido";
 
         botao.classList.add("ativo");
 
@@ -75,10 +70,10 @@ botoesLike.forEach(botao => {
 
 
 
-
     botao.addEventListener("click", () => {
 
 
+        // impede curtir novamente
 
         if(localStorage.getItem("curtiu-" + id)){
 
@@ -115,6 +110,7 @@ botoesLike.forEach(botao => {
         "❤️ Curtido";
 
 
+
         botao.classList.add("ativo");
 
 
@@ -144,25 +140,20 @@ const noticias = {
 
     <h2>🌍 Novo mapa</h2>
 
-
     <p>
-    O novo mapa do Forza Horizon 6 traz um mundo aberto
-    ainda maior, com cidades, estradas, montanhas e
-    regiões completamente exploráveis.
+    O Forza Horizon 6 apresenta um novo mundo aberto
+    cheio de cidades, estradas, montanhas e locais
+    para explorar.
     </p>
-
 
     <br>
 
-
     <p>
     Os jogadores poderão participar de corridas,
-    eventos especiais e desafios espalhados pelo mapa.
+    desafios especiais e eventos espalhados pelo mapa.
     </p>
 
-
     `,
-
 
 
 
@@ -170,26 +161,20 @@ const noticias = {
 
     <h2>🚗 Novos carros</h2>
 
-
     <p>
-    A nova geração traz diversos veículos,
+    A nova edição traz diversos veículos,
     incluindo carros clássicos, esportivos e
-    supermáquinas modernas.
+    supercarros modernos.
     </p>
-
 
     <br>
 
-
     <p>
-    Cada carro pode receber melhorias,
-    pinturas personalizadas e ajustes de desempenho.
+    Todos os carros podem receber melhorias,
+    personalizações e ajustes de desempenho.
     </p>
 
-
     `,
-
-
 
 
 
@@ -197,24 +182,19 @@ const noticias = {
 
     <h2>🏁 Festival Horizon</h2>
 
-
     <p>
-    O Festival Horizon reúne pilotos do mundo inteiro
-    em desafios, campeonatos e eventos especiais.
+    O Festival Horizon reúne competidores em
+    grandes eventos e campeonatos.
     </p>
-
 
     <br>
 
-
     <p>
-    Complete missões para desbloquear recompensas
-    e aumentar sua coleção de carros.
+    Complete desafios para desbloquear recompensas
+    e aumentar sua coleção de veículos.
     </p>
 
-
     `
-
 
 
 };
@@ -225,22 +205,21 @@ const noticias = {
 
 
 
+// ========================
+// ABRIR NOTÍCIA
+// ========================
 
-// ========================
-// MODAL DE NOTÍCIAS
-// ========================
+
+const botoesLer =
+document.querySelectorAll(".btn-ler");
 
 
 const modal =
 document.querySelector(".modal");
 
+
 const conteudo =
 document.querySelector(".conteudo-modal");
-
-
-
-const botoesLer =
-document.querySelectorAll(".btn-ler");
 
 
 
@@ -274,8 +253,9 @@ botoesLer.forEach(botao => {
 
 
 
-
-// Fechar modal
+// ========================
+// FECHAR MODAL
+// ========================
 
 
 const fechar =
@@ -296,16 +276,16 @@ fechar.addEventListener("click", () => {
 
 
 
+// Fechar clicando fora da caixa
 
-// fechar clicando fora
 
-
-modal.addEventListener("click", (evento)=>{
+modal.addEventListener("click", (evento) => {
 
 
     if(evento.target === modal){
 
-        modal.style.display="none";
+        modal.style.display =
+        "none";
 
     }
 
